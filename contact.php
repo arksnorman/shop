@@ -1,24 +1,29 @@
 <?php 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
     $message = trim($_POST["message"]);
 
 
-    if ($name == "" OR $email == "" OR $message == "") {
+    if ($name == "" OR $email == "" OR $message == "") 
+    {
         echo "You must specify a value for name, email address, and message.";
         exit;
     }
 
-    foreach( $_POST as $value ){
-        if( stripos($value,'Content-Type:') !== FALSE ){
+    foreach( $_POST as $value )
+    {
+        if( stripos($value,'Content-Type:') !== FALSE )
+        {
             echo "There was a problem with the information you entered.";    
             exit;
         }
     }
 
-    if ($_POST["address"] != "") {
+    if ($_POST["address"] != "") 
+    {
         echo "Your form submission has an error.";
         exit;
     }
@@ -26,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once("inc/phpmailer/class.phpmailer.php");
     $mail = new PHPMailer();
 
-    if (!$mail->ValidateAddress($email)){
+    if (!$mail->ValidateAddress($email))
+    {
         echo "You must specify a valid email address.";
         exit;
     }
@@ -42,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Subject    = "Shirts 4 Mike Contact Form Submission | " . $name;
     $mail->MsgHTML($email_body);
 
-    if(!$mail->Send()) {
+    if(!$mail->Send()) 
+    {
       echo "There was a problem sending the email: " . $mail->ErrorInfo;
       exit;
     }
@@ -50,7 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: contact.php?status=thanks");
     exit;
 }
-?><?php 
+?>
+
+<?php 
 $pageTitle = "Contact Mike";
 $section = "contact";
 include('inc/header.php'); ?>
