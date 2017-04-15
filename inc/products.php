@@ -5,12 +5,12 @@ function get_list_view_html($product_id, $product)
     
     $output = "";
 
-    $output = $output . "<li>";
+    $output = $output . '<div class="col-md-3 text-center">';
     $output = $output . '<a href="shirt.php?id=' . $product_id . '">';
-    $output = $output . '<img src="' . $product["img"] . '" alt="' . $product["name"] . '">';
-    $output = $output . "<p>View Details</p>";
+    $output = $output . '<img height="250px" width="250px" src="' . $product["img"] . '" alt="' . $product["name"] . '">';
+    $output = $output . '<button class="btn btn-success">View details</button>';
     $output = $output . "</a>";
-    $output = $output . "</li>";
+    $output = $output . '</div>';
 
     return $output;
 }
