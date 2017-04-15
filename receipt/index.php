@@ -1,8 +1,11 @@
 <?php
 
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+
 	$pageTitle = "Thank you for your order!";
-	$section = "none";
-	include("inc/header.php"); 
+	$page = "none";
+
+	require_once header;
 
 ?>
 
@@ -14,10 +17,10 @@
 
 		<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log into your account at <a href="http://www.paypal.com/us">www.paypal.com/us</a> to view details of this transaction.</p>
 
-		<p>Need another shirt already? Visit the <a href="/shirts.php">Shirts Listing</a> page again.</p>
+		<p>Need another smartphone already? Visit the <a href="/shirts.php">SmartPhone Full Catalog</a> page again.</p>
 
 	</div>
 
 </div>
 
-<?php include("inc/footer.php"); ?>
+<?php require_once footer; ?>

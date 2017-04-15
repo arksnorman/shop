@@ -1,4 +1,7 @@
 <?php
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+
 	$page = 'contact';
 	$pageTitle = 'Contact ' . owner;
 
@@ -30,7 +33,7 @@
 	        exit;
 	    }
 
-	    require_once("inc/phpmailer/class.phpmailer.php");
+	    require_once phpMailer;
 	    $mail = new PHPMailer();
 
 	    if (!$mail->ValidateAddress($email))
@@ -60,40 +63,41 @@
 	    exit;
 	}
 
-	require_once 'inc/header.php';
+	require_once header;
 
 ?>
 
-			<h1 class="text-center">Get in touch</h1>
-			<?php if (isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
-                <p>Thanks for the email! I&rsquo;ll be in touch shortly!</p>
-            <?php } else { ?>
-			<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>
-			<div class="row">
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-					<form action="contact.php" method="POST" role="form">
-						<legend>Contact</legend>
-					
-						<div class="form-group">
-							<label for="">Name</label>
-							<input type="name" class="form-control" id="" name="name" placeholder="Enter your name">
-						</div>
-						<div class="form-group">
-							<label for="">Email</label>
-							<input type="email" class="form-control" id="" name="email" placeholder="Enter your email address">
-						</div>
-						<div class="form-group">
-							<label for="message">Message</label>
-							<textarea class="form-control" rows="3" id="comment"></textarea>
-						</div>
-
-						<button type="submit" class="btn btn-success">Send</button>
-					</form>
-					<?php } ?>
-				</div>
-				<div class="col-md-4"></div>
+<h1 class="text-center">Get in touch</h1>
+<?php if (isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
+    <p>Thanks for the email! I&rsquo;ll be in touch shortly!</p>
+<?php } else { ?>
+<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<form action="contact.php" method="POST" role="form">
+			<legend>Contact</legend>
+		
+			<div class="form-group">
+				<label for="">Name</label>
+				<input type="name" class="form-control" id="" name="name" placeholder="Enter your name">
 			</div>
+			<div class="form-group">
+				<label for="">Email</label>
+				<input type="email" class="form-control" id="" name="email" placeholder="Enter your email address">
+			</div>
+			<div class="form-group">
+				<label for="message">Message</label>
+				<textarea class="form-control" rows="3" id="comment"></textarea>
+			</div>
+
+			<button type="submit" class="btn btn-success">Send</button>
+		</form>
+		<?php } ?>
+	</div>
+	<div class="col-md-4"></div>
+</div>
+			
 <!-- Start Footer -->
-<?php include('inc/footer.php') ?>
+<?php require_once footer; ?>
 <!-- End Footer -->

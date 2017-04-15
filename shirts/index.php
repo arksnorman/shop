@@ -1,9 +1,12 @@
 <?php 
 
-	include("inc/products.php"); 
-	$pageTitle = "Mike's Full Catalog of Shirts";
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+	
+	$pageTitle = owner2 . " Full Catalog of SmartPhones";
 	$page = "shirts";
-	include('inc/header.php'); 
+
+	require_once products;
+	require_once header;
 
 ?>
 
@@ -11,7 +14,7 @@
 
 	<div class="wrapper">
 
-		<h1>Mike&rsquo;s Full Catalog of Shirts</h1>
+		<h1><?php echo owner2; ?> Full Catalog of SmartPhones</h1>
 
 		<ul class="products">
 			<?php foreach($products as $product_id => $product) { 
@@ -24,4 +27,4 @@
 
 </div>
 
-<?php include('inc/footer.php') ?>
+<?php require_once footer; ?>

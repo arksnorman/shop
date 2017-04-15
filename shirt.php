@@ -1,4 +1,8 @@
-<?php include("inc/products.php");
+<?php 
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+
+	require_once products;
 
 	if (isset($_GET["id"])) 
 	{
@@ -7,7 +11,9 @@
 
 		if (isset($products[$product_id])) 
 		{
+
 			$product = $products[$product_id];
+			
 		}
 
 	}
@@ -21,15 +27,16 @@
 
 	}
 
-	$section = "shirts";
+	$page = "shirts";
 	$pageTitle = $product["name"];
-	include("inc/header.php"); 
+
+	require_once header; 
 
 ?>
 
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
-  <li><a href="/shirts.php">Shirts</a></li>
+  <li><a href="/shirts">Shirts</a></li>
   <li class="active"><?php echo $product["name"]; ?></li>
 </ol>
 
@@ -69,4 +76,4 @@
 
 </div>
 
-<?php include("inc/footer.php"); ?>
+<?php require_once footer; ?>
