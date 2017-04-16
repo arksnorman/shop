@@ -73,17 +73,17 @@
 	<div class="col-md-4">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" role="form">
 			<?php 
-			if (isset($errorMessages)) 
-			{				
-				foreach ($errorMessages as $errorMessage) 
-				{
-					echo '<div class="alert alert-danger">' . $errorMessage . '</div>';
+				if (isset($errorMessages)) 
+				{				
+					foreach ($errorMessages as $errorMessage) 
+					{
+						echo '<div class="alert alert-danger">' . $errorMessage . '</div>';
+					}
 				}
-			}
-			else
-			{
-				echo '<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>';
-			}
+				else
+				{
+					echo '<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>';
+				}
 			?>
 			<div class="form-group">
 				<label for="">Name</label>
