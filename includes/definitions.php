@@ -7,7 +7,7 @@
 	define('twitter', 'twitter.com/Lilian');
 	define('header', rootPath . '/includes/header.php');
 	define('footer', rootPath . '/includes/footer.php');
-	define('products', rootPath . '/includes/products.php');					
+	define('functions', rootPath . '/includes/functions.php');					
 	define('supportMail', 'lilian@lilianshop.proj');	
 	
 ?>

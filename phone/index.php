@@ -2,7 +2,7 @@
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
 
-	require_once products;
+	require_once functions;
 
 	if (isset($_GET["id"])) 
 	{
