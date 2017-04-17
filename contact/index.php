@@ -10,6 +10,7 @@
 	    $name = htmlspecialchars(trim($_POST["name"]));
 	    $email = htmlspecialchars(trim($_POST["email"]));
 	    $message = htmlspecialchars(trim($_POST["message"]));
+	    $to = supportMail;
 	    $errorMessages = array();
 
 	    if ($name == "" OR $email == "" OR $message == "")
@@ -25,35 +26,21 @@
 	        }
 	    }
 
-	    require_once phpMailer;
-	    $mail = new PHPMailer();
-
-	    if (!$mail->ValidateAddress($email))
+	    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 	    {
 	        $errorMessages[] = "You must specify a valid email address.";	        
 	    }
 
 	    if (count($errorMessages) == 0) 
 	    {
-		    $email_body = "";
-		    $email_body = $email_body . "Name: " . $name . "<br>";
-		    $email_body = $email_body . "Email: " . $email . "<br>";
-		    $email_body = $email_body . "Message: " . $message;
-
-		    $mail->SetFrom($email, $name);
-		    $address = "orders@shirts4mike.com";
-		    $mail->AddAddress($address, "Shirts 4 Mike");
-		    $mail->Subject    = "Shirts 4 Mike Contact Form Submission | " . $name;
-		    $mail->MsgHTML($email_body);
-
-		    if($mail->Send()) 
+		    if(mail($to, $email, $message, $name)) 
 		    {
 		    	header("Location: contact.php?status=thanks");
 		    	exit;
 		    }
 		    else
 		    {
-		    	$errorMessages[] = "There was a problem sending the email: " . $mail->ErrorInfo;
+		    	$errorMessages[] = "There was a problem sending the email";
 		    }
 		}
 	    
@@ -64,15 +51,24 @@
 ?>
 
 <h1 class="text-center">Get in touch</h1>
-<?php if (isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
-    <p>Thanks for the email! I&rsquo;ll be in touch shortly!</p>
-<?php } else { ?>
+
+<?php 
+
+	if (isset($_GET["status"]) AND $_GET["status"] == "thanks") 
+	{
+    	echo '<div class="alert alert-success"><p>Thanks for the email! I&rsquo;ll be in touch shortly!</p></div>';
+	} 
+
+	else { 
+
+?>
 
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" role="form">
+		<form action="/contact/" method="POST" role="form">
 			<?php 
+
 				if (isset($errorMessages)) 
 				{				
 					foreach ($errorMessages as $errorMessage) 
@@ -84,6 +80,7 @@
 				{
 					echo '<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>';
 				}
+
 			?>
 			<div class="form-group">
 				<label for="">Name</label>

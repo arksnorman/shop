@@ -8,6 +8,6 @@
 	define('header', rootPath . '/includes/header.php');
 	define('footer', rootPath . '/includes/footer.php');
 	define('products', rootPath . '/includes/products.php');					
-	define('phpMailer', rootPath . '/includes/PHPMailer.php');
+	define('supportMail', 'lilian@lilianshop.proj');	
 	
 ?>
