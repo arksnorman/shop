@@ -8,7 +8,7 @@
 	require_once products;
 	require_once header;
 
-	echo "<h1 class='text-center'>" . owner2 . " Full Catalog of SmartPhones</h1>";
+	echo "<div class='alert alert-success'><h1 class='text-center'>" . owner2 . " Full Catalog of SmartPhones</h1></div>";
 
 	echo '<div class="row">';
 
