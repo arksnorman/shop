@@ -19,9 +19,9 @@
 
 	<div class="well">
 
-	<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log into your account at <a href="http://www.paypal.com/us">www.paypal.com/us</a> to view details of this transaction.</p>
+	<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. </p>
 
-	<p>Need another smartphone already? Visit the <a href="/shirts.php">SmartPhone Full Catalog</a> page again.</p>
+	<p>Need another smartphone already? Visit the <a href="/phones">SmartPhone Full Catalog</a> page again.</p>
 	</div>
 	<div class="col-md-4"></div>
 	</div>
