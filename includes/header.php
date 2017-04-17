@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
-		<div class="container">		
+		<!-- <div class="container">		 -->
 			<!--Navbar Start -->
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="container-fluid">

@@ -5,7 +5,7 @@ function get_list_view_html($product_id, $product)
     
     $output = "";
 
-    $output = $output . '<div class="col-md-4 text-center">';
+    $output = $output . '<div class="col-md-3 text-center">';
     $output = $output . '<div class="well">';
     $output = $output . '<a href="/shirt.php?id=' . $product_id . '">';
     $output = $output . '<img height="250px" width="250px" src="' . $product["img"] . '" alt="' . $product["name"] . '">';
