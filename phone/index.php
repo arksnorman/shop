@@ -36,7 +36,7 @@
 
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
-  <li><a href="/shirts">Shirts</a></li>
+  <li><a href="/phones">SmartPhones</a></li>
   <li class="active"><?php echo $product["name"]; ?></li>
 </ol>
 
@@ -63,8 +63,8 @@
 				<label for="os0">Color</label>
 				<input type="hidden" name="on0" value="Size">
 				<select class="form-control" id="os0" name="os0">
-					<?php foreach($product["sizes"] as $size) { ?>
-					<option value="<?php echo $size; ?>"><?php echo $size; ?> </option>
+					<?php foreach($product["color"] as $color) { ?>
+					<option value="<?php echo $color; ?>"><?php echo $color; ?> </option>
 					<?php } ?>
 				</select>
 			</div>

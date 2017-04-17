@@ -7,20 +7,26 @@
 
 	require_once header;
 
-?>
+	echo '
 
-<div class="section page">
+	<div class="row">
 
-	<div class="wrapper">
+	<div class="col-md-4"></div>
 
-		<h1>Thank You!</h1>
+	<div class="col-md-4 text-center">
 
-		<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log into your account at <a href="http://www.paypal.com/us">www.paypal.com/us</a> to view details of this transaction.</p>
+	<div class="alert alert-success"><h1>Thank You!</h1></div>
 
-		<p>Need another smartphone already? Visit the <a href="/shirts.php">SmartPhone Full Catalog</a> page again.</p>
+	<div class="well">
 
+	<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log into your account at <a href="http://www.paypal.com/us">www.paypal.com/us</a> to view details of this transaction.</p>
+
+	<p>Need another smartphone already? Visit the <a href="/shirts.php">SmartPhone Full Catalog</a> page again.</p>
 	</div>
+	<div class="col-md-4"></div>
+	</div>
+	</div>';
 
-</div>
+	require_once footer; 
 
-<?php require_once footer; ?>
+?>

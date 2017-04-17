@@ -7,7 +7,7 @@ function get_list_view_html($product_id, $product)
 
     $output = $output . '<div class="col-md-3 text-center">';
     $output = $output . '<div class="well">';
-    $output = $output . '<a href="/shirt.php?id=' . $product_id . '">';
+    $output = $output . '<a href="/phone/?id=' . $product_id . '">';
     $output = $output . '<img height="250px" width="250px" src="' . $product["img"] . '" alt="' . $product["name"] . '">';
     $output = $output . '<hr>';
     $output = $output . '<button class="btn btn-success">View details</button>';
@@ -20,60 +20,60 @@ function get_list_view_html($product_id, $product)
 
 $products = array();
 $products[101] = array(
-	"name" => "Logo Shirt, Red",
-	"img" => "/img/shirts/shirt-101.jpg",
-	"price" => 18,
+	"name" => "M9 Bluetooth Smart-Wrist-Watch",
+	"img" => "/img/phones/smartwatch.jpg",
+	"price" => 50,
 	"paypal" => "9P7DLECFD4LKE",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[102] = array(
-	"name" => "Mike the Frog Shirt, Black",
-    "img" => "/img/shirts/shirt-102.jpg",
-    "price" => 20,
+	"name" => "FERO A4501 SmartPhone",
+    "img" => "/img/phones/fero.jpg",
+    "price" => 80,
     "paypal" => "SXKPTHN2EES3J",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[103] = array(
-    "name" => "Mike the Frog Shirt, Blue",
-    "img" => "/img/shirts/shirt-103.jpg",    
-    "price" => 20,
+    "name" => "HTC Desire 510 SmartPhone",
+    "img" => "/img/phones/htcdesire.jpg",    
+    "price" => 100,
     "paypal" => "7T8LK5WXT5Q9J",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[104] = array(
-    "name" => "Logo Shirt, Green",
-    "img" => "/img/shirts/shirt-104.jpg",    
-    "price" => 18,
+    "name" => "Homtom HD SmartPhone",
+    "img" => "/img/phones/homtom.jpg",    
+    "price" => 90,
     "paypal" => "YKVL5F87E8PCS",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[105] = array(
-    "name" => "Mike the Frog Shirt, Yellow",
-    "img" => "/img/shirts/shirt-105.jpg",    
-    "price" => 25,
+    "name" => "UYI TOUCH SmartPhone",
+    "img" => "/img/phones/uyi.jpg",    
+    "price" => 99,
     "paypal" => "4CLP2SCVYM288",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[106] = array(
-    "name" => "Logo Shirt, Gray",
-    "img" => "/img/shirts/shirt-106.jpg",    
-    "price" => 20,
+    "name" => "Vivo Y22 SmartPhone",
+    "img" => "/img/phones/vivo.jpg",    
+    "price" => 103,
     "paypal" => "TNAZ2RGYYJ396",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[107] = array(
-    "name" => "Logo Shirt, Teal",
-    "img" => "/img/shirts/shirt-107.jpg",    
-    "price" => 20,
+    "name" => "Samsung Galaxy S7 SmartPhone",
+    "img" => "/img/phones/s7.jpg",    
+    "price" => 200,
     "paypal" => "S5FMPJN6Y2C32",
-    "sizes" => array("Small","Medium","Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 $products[108] = array(
-    "name" => "Mike the Frog Shirt, Orange",
-    "img" => "/img/shirts/shirt-108.jpg",    
-    "price" => 25,
+    "name" => "U8 Bluetooth Smart-Wrist-Watch",
+    "img" => "/img/phones/u8.jpg",    
+    "price" => 70,
     "paypal" => "JMFK7P7VEHS44",
-    "sizes" => array("Large","X-Large")
+    "color" => array("Black","White","Pink")
 );
 
 ?>
