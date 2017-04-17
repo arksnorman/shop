@@ -1,6 +1,6 @@
 <?php
 
-function get_list_view_html($product) 
+function output($product) 
 {
     
     $output = "";
@@ -17,6 +17,23 @@ function get_list_view_html($product)
 
     return $output;
 
+}
+
+function search($q)
+{
+    $results = array();
+
+    $allProducts = allProducts();
+
+    foreach ($allProducts as $product) 
+    {
+        if (stripos($product['name'], $q) !== false) 
+        {
+            $results[] = $product;
+        }                
+    }
+
+    return $results;
 }
 
 function recentProducts()

@@ -15,7 +15,7 @@
 
 	foreach($recent as $product) 
 	{ 		
-		$list_view_html = get_list_view_html($product) . $list_view_html;
+		$list_view_html = output($product) . $list_view_html;
 	}
 
 	echo $list_view_html;
