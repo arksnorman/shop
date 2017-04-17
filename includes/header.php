@@ -28,7 +28,8 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li <?php if ($page == "shirts") { echo 'class="active"'; } ?>><a href="/shirts">Shirts</a></li>
+						<li <?php if ($page == "phones") { echo 'class="active"'; } ?>><a href="/phones">SmartPhones</a></li>
+						<li <?php if ($page == "search") { echo 'class="active"'; } ?>><a href="/search"><i class="fa fa-search"></i> Search</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li <?php if ($page == "contact") { echo 'class="active"'; } ?>><a href="/contact"><i class="fa fa-phone"></i> Contact</a></li>

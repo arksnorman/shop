@@ -48,12 +48,6 @@
 
 	require_once header;
 
-?>
-
-<h1 class="text-center">Get in touch</h1>
-
-<?php 
-
 	if (isset($_GET["status"]) AND $_GET["status"] == "thanks") 
 	{
     	echo '<div class="alert alert-success"><p>Thanks for the email! I&rsquo;ll be in touch shortly!</p></div>';
@@ -66,6 +60,7 @@
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
+		<div class="alert alert-info"><h3 class="text-center">Get in touch</h3></div>
 		<form action="/contact/" method="POST" role="form">
 			<?php 
 
@@ -78,7 +73,7 @@
 				}
 				else
 				{
-					echo '<p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p>';
+					echo '<div class="alert alert-warning"><p class="text-center">I’d love to hear from you! Complete the form to send me an email.</p></div>';
 				}
 
 			?>
