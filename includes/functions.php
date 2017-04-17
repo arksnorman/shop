@@ -70,7 +70,7 @@ function allProducts()
     	"name" => "M9 Bluetooth Smart-Wrist-Watch",
     	"img" => "/img/phones/smartwatch.jpg",
     	"price" => 50,
-    	"paypal" => "9P7DLECFD4LKE",
+    	"paypal" => "DPC2S7KG49NQQ",
         "color" => array("Black","White","Pink")
     );
 
@@ -78,7 +78,7 @@ function allProducts()
     	"name" => "FERO A4501 SmartPhone",
         "img" => "/img/phones/fero.jpg",
         "price" => 80,
-        "paypal" => "SXKPTHN2EES3J",
+        "paypal" => "2MQXRL5KGHK9L",
         "color" => array("Black","White","Pink")
     );
 
@@ -86,7 +86,7 @@ function allProducts()
         "name" => "HTC Desire 510 SmartPhone",
         "img" => "/img/phones/htcdesire.jpg",    
         "price" => 100,
-        "paypal" => "7T8LK5WXT5Q9J",
+        "paypal" => "YAKN74QNBVQ2N",
         "color" => array("Black","White","Pink")
     );
 
@@ -94,7 +94,7 @@ function allProducts()
         "name" => "Homtom HD SmartPhone",
         "img" => "/img/phones/homtom.jpg",    
         "price" => 90,
-        "paypal" => "YKVL5F87E8PCS",
+        "paypal" => "QVS3E7A5QDB24",
         "color" => array("Black","White","Pink")
     );
 
@@ -102,7 +102,7 @@ function allProducts()
         "name" => "UYI TOUCH SmartPhone",
         "img" => "/img/phones/uyi.jpg",    
         "price" => 99,
-        "paypal" => "4CLP2SCVYM288",
+        "paypal" => "Q22QAPWV2JX72",
         "color" => array("Black","White","Pink")
     );
 
@@ -110,7 +110,7 @@ function allProducts()
         "name" => "Vivo Y22 SmartPhone",
         "img" => "/img/phones/vivo.jpg",    
         "price" => 103,
-        "paypal" => "TNAZ2RGYYJ396",
+        "paypal" => "2FMAE4BGWMQ22",
         "color" => array("Black","White","Pink")
     );
 
@@ -118,7 +118,7 @@ function allProducts()
         "name" => "Samsung Galaxy S7 SmartPhone",
         "img" => "/img/phones/s7.jpg",    
         "price" => 200,
-        "paypal" => "S5FMPJN6Y2C32",
+        "paypal" => "FNXW5BJW8QR4N",
         "color" => array("Black","White","Pink")
     );
 
@@ -126,7 +126,7 @@ function allProducts()
         "name" => "U8 Bluetooth Smart-Wrist-Watch",
         "img" => "/img/phones/u8.jpg",    
         "price" => 70,
-        "paypal" => "JMFK7P7VEHS44",
+        "paypal" => "SU7PY683CFL8E",
         "color" => array("Black","White","Pink")
     );
 
