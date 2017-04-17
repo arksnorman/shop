@@ -40,6 +40,8 @@
 	<div class="col-md-3"></div>
 </div>
 
+<hr>
+
 <div class="row">
 
 	<?php 
