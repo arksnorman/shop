@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title><?php echo $pageTitle; ?></title>
-		<link rel="shortcut icon" href="/img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
-	</head>
-	<body>		
-	<!--Navbar Start -->
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand <?php if ($page == "home") { echo 'class="active"'; } ?>" href="/"><?php echo owner; ?></a>
-				</div>
-		
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<ul class="nav navbar-nav">
-						<li <?php if ($page == "phones") { echo 'class="active"'; } ?>><a href="/phones">SmartPhones</a></li>
-						<li <?php if ($page == "search") { echo 'class="active"'; } ?>><a href="/search"><i class="fa fa-search"></i> Search</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li <?php if ($page == "contact") { echo 'class="active"'; } ?>><a href="/contact"><i class="fa fa-phone"></i> Contact</a></li>
-						<li><a target="paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;business=Q6NFNPFRBWR8S&amp;display=1"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</nav>
-
-	<!--Navbar end -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><?=$pageTitle;?></title>
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><?=BRANDNAME;?></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/all/"><i class="fa fa-mobile"></i> All Phones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search/"><i class="fa fa-search"></i> Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact/"><i class="fa fa-phone"></i> Contact</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+        	<li class="nav-item">
+                <a class="nav-link" href="/cart/"><i class="fa fa-shopping-cart"></i> Shopping Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login/"><i class="fa fa-sign-in"></i> Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register/"><i class="fa fa-registered"></i> Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
