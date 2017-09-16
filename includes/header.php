@@ -21,7 +21,7 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/all/"><i class="fa fa-mobile"></i> All Phones</a>
+                <a class="nav-link" href="/phones/"><i class="fa fa-mobile"></i> All Phones</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/search/"><i class="fa fa-search"></i> Search</a>
