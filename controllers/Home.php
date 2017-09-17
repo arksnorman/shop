@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			$queryString = 'SELECT * FROM phone_products ORDER BY id DESC LIMIT 0,4';
+			$queryString = 'SELECT name,id,img  FROM products ORDER BY id DESC LIMIT 0,4';
 			$latestPhones = Database::getInstance()->query($queryString)->resultsAll();
 			$pageTitle = 'Home | ' . BRANDNAME;
 			$page = "home";
