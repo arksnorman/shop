@@ -1,27 +1,56 @@
 <?php
 
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php'; 
+	define('ENVIRONMENT', 'development');
+	define('DS', DIRECTORY_SEPARATOR);
+	define('ROOTPATH', __DIR__);
+	define('VIEWPATH', ROOTPATH . DS . 'templates' . DS);
+	define('MODELPATH', ROOTPATH . DS . 'models' . DS);
+	define('CONTROLLERPATH', ROOTPATH . DS . 'controllers' . DS);
+	define('CLASSPATH', ROOTPATH . DS . 'classes' . DS);
+	define('INCPATH', ROOTPATH . DS . 'includes' . DS);
+	define('HEADER', INCPATH . 'header.php');
+	define('FOOTER', INCPATH . 'footer.php');
 
-	$pageTitle = owner . " | Home";
-	$page = "home";
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(-1);
+			ini_set('display_errors', 1);
+		break;
 
-	require_once functions;
-	require_once header;
+		case 'testing':
+		case 'production':
+			ini_set('display_errors', 0);
+			if (version_compare(PHP_VERSION, '7.0', '>='))
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+			}
+			else
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+			}
+		break;
 
-	echo '<div class="alert alert-success"><h1 class="text-center">' . owner . ' Latest Phones</h1></div>';
-	echo '<div class="row">';
-
-	$list_view_html = "";
-
-	foreach($recent as $product) 
-	{ 		
-		$list_view_html = output($product) . $list_view_html;
+		default:
+			header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+			echo 'The application environment is not set correctly.';
+			exit(1);
 	}
 
-	echo $list_view_html;
+	function autoload($file)
+	{
+		if(file_exists(CLASSPATH . $file . '.php'))
+		{
+			require_once CLASSPATH . $file . '.php';
+		}
+		else
+		{
+			require_once CONTROLLERPATH . $file . '.php';
+		}
+	}
 
-	echo "</div>";
+	spl_autoload_register('autoload');
+	require_once INCPATH . 'definitions.php';
+	require_once INCPATH . 'functions.php';
 
-	require_once footer;
-	
-?>
+	FrontController::runRequest();
