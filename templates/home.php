@@ -3,7 +3,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
-    <strong>Welcome to <?=BRANDNAME;?> Online Shopping Mall</strong>
+    <strong>Welcome to <?=BRANDNAME;?>. An Online Phone Shopping Mall</strong>
     <hr />
     Grab yourself one of the latest smartphones below! Rethink what a smartphone can do
 </div>
