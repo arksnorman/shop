@@ -1,13 +1,10 @@
 <?php
 
-	define('owner', "Arksnorman's Online Phone Shop");
-	define('owner2', "Arksnorman's");
-	define('owner3', 'Arksnorman');	
-	define('facebook', 'facebook.com/');
-	define('twitter', 'twitter.com/');
-	define('header', rootPath . '/includes/header.php');
-	define('footer', rootPath . '/includes/footer.php');
-	define('functions', rootPath . '/includes/functions.php');					
-	define('supportMail', 'arksnorman@arksnorman.tk');
-	
-?>
+	define('DBHOST', '127.0.0.1');
+	define('DBUSERNAME', 'root');
+	define('DBPASS', 'root');
+	define('DBNAME', 'phoneshop');
+	define('DBPORT', '3306');
+	define('DBDRIVER', 'mysql');
+	define('BRANDNAME', 'Autophone Shop');
+	define('SUPPORTMAIL', 'arksnorman@arksnorman.tk');
