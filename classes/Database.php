@@ -2,151 +2,106 @@
 
 	class Database
 	{
-		private static $instance = null;
+		const SINGLE = 1;
+		const ROW = 2;
+		const ALL = 3;
+		const AFFECTED = 4;
+		const IDENTIFIER = 5;
 		private static $connection = null;
-		private	static $query;
-		private	static $error = false;
-		private	static $resultsAll;
-		private	static $count = 0;
-		private static $resultsSingle;
 
 		private static function connect()
 		{
 			try
 			{
-				self::$connection = new PDO(DBDRIVER.":host=".DBHOST.";dbname=".DBNAME.";port=".DBPORT."", DBUSERNAME, DBPASS, [ PDO::ATTR_PERSISTENT => true ]);
-				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$conn = new PDO(DBDRIVER.":host=".DBHOST.";dbname=".DBNAME.";port=".DBPORT."", DBUSERNAME, DBPASS, [ PDO::ATTR_PERSISTENT => true ]);
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$conn->exec('SET NAMES UTF8');
 			}
 			catch (PDOException $e)
 			{
-				die($e->getMessage());
+				die('Cant connect to database: '. $e->getMessage());
 			}
-			return new static;
+			return $conn;
 		}
 
-		public static function getInstance()
+		public static function getInstance() :PDO
 		{
-			if (!isset(self::$instance))
+			if (!isset(self::$connection))
 			{
-				self::$instance = self::connect();
+				self::$connection = self::connect();
 			}
-			return self::$instance;
+			return self::$connection;
 		}
 
-		public static function query($sql, $params = [])
+		public static function query(string $sql, array $values = [], string $mode = null)
 		{
-			self::$error = false;
-
-			if (self::$query = self::$connection->prepare($sql))
+			$statement = self::getInstance()->prepare($sql);
+			if ($statement->execute($values))
 			{
-				$x = 1;
-
-				if (count($params))
+				if ($mode == null)
 				{
-					foreach ($params as $param)
-					{
-						self::$query->bindValue($x, $param);
-						$x++;
-					}
+					return true;
 				}
-
-				if (self::$query->execute())
+				if ($mode == self::SINGLE)
 				{
-					self::$resultsAll 	= self::$query->fetchAll(PDO::FETCH_ASSOC);
-					self::$count = self::$query->rowCount();
-					self::$resultsSingle = self::$query->fetch(PDO::FETCH_ASSOC);
+					return $statement->fetchColumn();
 				}
-				else
+				if ($mode == self::ROW)
 				{
-					self::$error = true;
+					return $statement->fetch(PDO::FETCH_ASSOC);
 				}
-				return new static;
-			}
-		}
-
-		private static function action($action, $table, $where = [])
-		{
-			if (count($where) === 3)
-			{
-				$operators = array('=', '>', '<', '>=', '<=');
-				$field = $where[0];
-				$operator = $where[1];
-				$value = $where[2];
-
-				if (in_array($operator, $operators))
+				if ($mode == self::AFFECTED)
 				{
-					$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-
-					if (!self::getInstance()->query($sql, array($value))->error())
-					{
-						return new static;
-					}
+					return $statement->rowCount();
+				}
+				if ($mode == self::IDENTIFIER)
+				{
+					return $this->connection->lastInsertId();
+				}
+				if ($mode = self::ALL)
+				{
+					return $statement->fetchAll(PDO::FETCH_ASSOC);
 				}
 			}
 			return false;
 		}
 
-		public static function getWhere($table, $where = [])
+		public static function fetchAll(string $string, array $values = []) :array
 		{
-			return self::action('SELECT *', $table, $where)->results();
+			return self::query($string, $values, self::ALL);
 		}
 
-		public static function getAll($table)
+		public static function fetchRow(string $string, array $values = []) :array
 		{
-			return self::getInstance()->query("SELECT * FROM {$table}")->results();
+			$fetchedData = self::query($string, $values, self::ROW);
+			return $fetchedData ? $fetchedData : [];
 		}
 
-		public static function delete($table, $where)
+		public static function rowCount(string $string, array $values = []) :int
 		{
-			return self::action('DELETE', $table, $where);
+			return self::query($string, $values, self::AFFECTED);
 		}
 
-		public static function insert($table, $fields = [])
+		public static function insert(string $table, array $params) :bool
 		{
-			if (count($fields))
+			if (count($params))
 			{
-				$keys = array_keys($fields);
+				$keys = array_keys($params);
 				$values = '';
 				$x = 1;
-
-				foreach ($fields as $field)
+				foreach ($params as $param)
 				{
 					$values .= '?';
 
-					if ($x < count($fields))
+					if ($x < count($params))
 					{
 						$values .= ', ';
 						$x++;
 					}
 				}
-
-				$queryString = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
-
-				if (!self::getInstance()->query($queryString, $fields)->error())
-				{
-					return true;
-				}
+				$sql = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
+				return (self::query($sql, array_values($params))) ? true : false;
 			}
 			return false;
-		}
-
-		public function error()
-		{
-			return self::$error;
-		}
-
-		public function count()
-		{
-			return self::$count;
-		}
-
-		public function resultsAll()
-		{
-			return self::$resultsAll;
-		}
-
-		public function resultsSingle()
-		{
-			return self::$resultsSingle;
 		}
 	}

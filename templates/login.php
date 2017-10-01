@@ -8,16 +8,25 @@
             </strong>
         </div>
         <br>
-        <form>
+        <form action="/login/" method="POST" role="form">
+            <?php
+            if (isset($errorMessages) && count($errorMessages))
+            {
+                foreach ($errorMessages as $errorMessage)
+                {
+                    echo '<div class="alert alert-danger">' . $errorMessage . '</div>';
+                }
+            }
+            ?>
             <div class="form-group">
                 <label class="form-control-label" for="username">Username/Email</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username or email address" value="<?=Input::get('username');?>">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username or email address" value="<?=Input::get('username');?>">
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn btn-info float-md-right"><i class="fa fa-sign-in"></i>  Let me in</button>
+            <button type="submit" class="btn btn-info float-md-right"><i class="fa fa-send"></i>  Let me in</button>
         </form>
     </div>
     <div class="col-md-3"></div>

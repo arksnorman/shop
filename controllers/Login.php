@@ -6,7 +6,7 @@
 		{
 			$pageTitle = 'Login | ' . BRANDNAME;
 			$page = "login";
-			$errorList = [];
+			$errorMessages = [];
 
 			if (Input::exists('POST'))
 			{
@@ -15,7 +15,18 @@
 
 				if (empty($username || $password))
 				{
-					$errorList = 'Please enter both username and password';
+					$errorMessages[] = 'Please enter both username and password';
+				}
+				else
+				{
+					if (User::login($username, $password))
+					{
+						Redirect::to('/home/');
+					}
+					else
+					{
+						$errorMessages[] = 'Invalid username or password';
+					}
 				}
 			}
 
