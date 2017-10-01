@@ -4,8 +4,7 @@
 	{
 		public function index()
 		{
-			$queryString = 'SELECT name,id,img  FROM products ORDER BY id DESC LIMIT 0,4';
-			$latestPhones = Database::getInstance()->query($queryString)->resultsAll();
+			$latestPhones = Database::fetchAll('SELECT name,id,img  FROM products ORDER BY id DESC LIMIT 0,4');
 			$pageTitle = 'Home | ' . BRANDNAME;
 			$page = "home";
 			require_once HEADER;

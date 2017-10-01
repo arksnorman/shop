@@ -4,8 +4,7 @@
 	{
 		public function index()
 		{
-			$queryString = 'SELECT name,id,img  FROM products ORDER BY id';
-			$allPhones = Database::getInstance()->query($queryString)->resultsAll();
+			$allPhones = Database::fetchAll('SELECT name,id,img  FROM products ORDER BY id');
 			$pageTitle = BRANDNAME . " full Catalog of Smartphones";
 			$page = "phones";
 			require_once HEADER;

@@ -9,20 +9,15 @@
 			if (isset($phoneId) && is_int($phoneId))
 			{
 				$productId = $phoneId;
-				$queryString = "SELECT * FROM products WHERE id = ?";
-				$product = Database::getInstance()->query($queryString, [$productId])->resultsAll();
+				$product = Database::fetchRow('SELECT * FROM products WHERE id = ?', [$phoneId]);
 				if (count($product))
 				{
-					$queryString = "SELECT * FROM specifications WHERE product_id = ?";
-					$phoneDetails = Database::getInstance()->query($queryString, [$productId])->resultsAll()[0];
-					$product = $product[0];
+					$phoneDetails = Database::fetchRow('SELECT * FROM specifications WHERE product_id = ?', [$productId]);
 					$pageTitle = $product["name"];
 					require_once HEADER;
 					require_once $this->view('phone');
 					require_once FOOTER;
 				}
 			}
-			// return Redirect::to();
-
 		}
 	}
