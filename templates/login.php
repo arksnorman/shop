@@ -11,7 +11,7 @@
         <form>
             <div class="form-group">
                 <label class="form-control-label" for="username">Username/Email</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username or email address">
+                <input type="text" class="form-control" id="username" placeholder="Enter your username or email address" value="<?=Input::get('username');?>">
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="password">Password</label>
