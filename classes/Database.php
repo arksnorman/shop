@@ -58,7 +58,7 @@
 				{
 					return $this->connection->lastInsertId();
 				}
-				if ($mode = self::ALL)
+				if ($mode == self::ALL)
 				{
 					return $statement->fetchAll(PDO::FETCH_ASSOC);
 				}
