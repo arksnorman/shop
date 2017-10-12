@@ -56,7 +56,7 @@
 				}
 				if ($mode == self::IDENTIFIER)
 				{
-					return $this->connection->lastInsertId();
+					return self::connection()->lastInsertId();
 				}
 				if ($mode == self::ALL)
 				{
