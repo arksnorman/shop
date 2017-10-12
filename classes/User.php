@@ -9,7 +9,7 @@
 			return (Database::insert($table, $fields)) ? true : false;
 		}
 
-		private static function find(string $user) :bool
+		public static function find(string $user) :bool
 		{
 			if ($user)
 			{
